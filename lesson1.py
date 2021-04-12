@@ -18,40 +18,26 @@ print("Вы ввели следующие строки: {0}, {1}.".format(line1,
 # 2. Пользователь вводит время в секундах. Переведите время в часы, минуты и секунды и выведите в формате чч:мм:сс.
 # Используйте форматирование строк.
 
-user_seconds = int(input("Введите время в секундах: "))
+user_input = input("Введите время в секундах: ")
 
-minutes = user_seconds // 60
-seconds = user_seconds % 60
-hour = user_seconds // 60 // 60
+if not user_input.isdigit():
+    print("Введите число!")
+    exit()
 
-if seconds < 10:
-    seconds = f"0{seconds}"
-# elif seconds > 60:
-# seconds = user_seconds % 60
+user_seconds = int(user_input)
 
-if minutes >= 60:
-    minutes = user_seconds % 60
+hours = user_seconds // 3600
+minutes = (user_seconds % 3600) // 60
+seconds = (user_seconds % 3600) % 60
 
-if minutes < 10:
-    minutes = f"0{minutes}"
-
-if hour < 10:
-    hour = f"0{hour}"
-
-print(f"Это равно: {hour}:{minutes}:{seconds}")
-# На этом этапе ступор. Если вводим 60000 секунд, должно получиться 16:40:00, а выводит 16:00:00
+print(f"{hours:>02}:{minutes:>02}:{seconds:>02}")
 
 # 3. Узнайте у пользователя число n. Найдите сумму чисел n + nn + nnn. Например, пользователь ввёл число 3. Считаем 3
 # + 33 + 333 = 369.
 
 n = int(input("Пожалуйста, введите число n: "))
-
-temp = str(n)
-t1 = temp + temp
-t2 = temp + temp + temp
-summ = n + int(t1) + int(t2)
-
-print("Сумма чисел n + nn + nnn равна: ", summ)
+res = n + n * 11 + n * 111
+print(f"n + nn + nnn = {res}")
 
 # 4. Пользователь вводит целое положительное число. Найдите самую большую цифру в числе. Для решения используйте цикл
 # while и арифметические операции.
