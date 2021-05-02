@@ -20,3 +20,4 @@ with open("input_file.txt", encoding='utf-8') as f_obj:
         print(line)
         with open("output_file.txt", "a") as f_rus:
             f_rus.write(f"\n {line}")
+
